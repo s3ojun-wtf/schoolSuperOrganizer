@@ -121,22 +121,16 @@ def main():
         main()
         return
     
-    os.system(f"start ./학생/{학번}/사진.png") #학생 사진 띄우기
+    # os.system(f"start ./학생/{학번}/사진.png") #학생 사진 띄우기
             
-    tmp = input(Fore.CYAN + "사진이 일치합니까? (참: 1  / 거짓: 0) > ")
-    if tmp == '0':
-        print(Fore.RED + "[-] 사진이 일치하지 않습니다.")
+    # tmp = input(Fore.CYAN + "사진이 일치합니까? (참: 1  / 거짓: 0) > ")
+    # if tmp == '0':
+    #     print(Fore.RED + "[-] 사진이 일치하지 않습니다.")
         
-    elif tmp == '1':
-        ws.cell(row=학번_행, column=날짜_열).value = "O" #석식 처리
-        ws.cell(row=학번_행, column=날짜_열).fill = green #석식 처리
-        print(Fore.GREEN + "[+] 석식 등록 완료.")
-    
-    else:
-        print(Fore.MAGENTA + "[?] 입력이 잘못됐습니다.")
+    ws.cell(row=학번_행, column=날짜_열).value = "O" #석식 처리
+    ws.cell(row=학번_행, column=날짜_열).fill = green #석식 처리
+    print(Fore.GREEN + "[+] 석식 등록 완료.")
 
-    os.system('taskkill /f /fi "WINDOWTITLE eq 사진*"')
-   
     (ws, 날짜_열) = findLDC(ws)
     ws = stdProcess(ws, 학번_행, 날짜_열)
 
